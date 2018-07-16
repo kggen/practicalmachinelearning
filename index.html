@@ -187,9 +187,9 @@ predDF&lt;-data.frame(pred_rf, pred_rpart, pred_lda, classe=intesting$classe)
 combinedModel&lt;-randomForest(classe~., data=predDF)
 pred_combined&lt;-predict(combinedModel, intesting)</code></pre>
 </div>
-<div id="selecting-a-model" class="section level1">
-<h1>Selecting a model</h1>
-<p>Now that we have all our models set and running, let’s compare the results against the actual values.</p>
+<div id="out-of-sample-error" class="section level1">
+<h1>Out of Sample Error</h1>
+<p>Now that we have all our models set and running, let’s compare the results against the actual values to verify the Out of Sample Error.</p>
 <pre class="r"><code>names&lt;-c(&quot;Random Forest&quot;, &quot;Classification Tree&quot;, &quot;Linear Discriminant Analysis&quot;, &quot;Combined Model&quot;, &quot;Actual Values&quot;)
 predictions&lt;-data.frame(summary(pred_rf),
                         summary(pred_rpart),
@@ -221,7 +221,12 @@ print(accuracy)</code></pre>
 ## Accuracy     0.9976211            0.519966                    0.7092608
 ##          Combined Model
 ## Accuracy      0.9959218</code></pre>
-<p>We can see that the Random Forest model and the combined (stacked) model have very high accuraccies. In this case we select the Random Forest model, because it has the highest accuracy. The stacked model is more complicated and doesn’t improve the accuracy, so we will better not use it.</p>
+<p>We can see that the Random Forest model and the combined (stacked) model have very high accuraccy.</p>
+<p>Since the testing was made on a dataset that is different from the training set, that means that the out of sample error of less than 0,03% is a very good measure of the models’ accuracy. Having this in mind, we can expect the error produced by the two models in future predictions to be very low.</p>
+</div>
+<div id="selecting-a-model" class="section level1">
+<h1>Selecting a Model</h1>
+<p>Taking into consideration the out of sample error analysis, we saw that the Random Forest and the combined model are the best. In this case we select the Random Forest model before the combined model, because of the following reasons: - Random Forest has the highest accuracy/lowest out of sample error; - the stacked model is more complicated and and has a (bit) lower accuracy.</p>
 </div>
 <div id="prediction" class="section level1">
 <h1>Prediction</h1>
