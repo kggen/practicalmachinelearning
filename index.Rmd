@@ -6,7 +6,7 @@ output: html_document
 ---
 
 # Overview
-The current document represents the analysis performed with regard to the Prediction Assignment to the Practical Machine Learning Course, taught by Mr. John Caffo.
+The current document represents the analysis performed with regard to the Prediction Assignment to the Practical Machine Learning Course, taught by Mr. Brian Caffo.
 The goal of the assignment is to predict how well 6 participants do a weight lifting exercise, based on the data from accelerometers on the belt, forearm, arm, and dumbell. Basically that means we have to find a classification algorythm to predict the outcome of an exercise.
 More information on how the experiment and how the data was collected can be found on the following link: http://groupware.les.inf.puc-rio.br/har
 
